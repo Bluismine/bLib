@@ -1,6 +1,7 @@
-package org.blu.blib;
+package org.blu.blib.File;
 
 import org.blu.blib.Util.Text;
+import org.blu.blib.bLib;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -31,6 +32,7 @@ public class Configuration {
 
         try {
             config.load(configFile);
+            config.save(configFile);
         } catch (IOException | InvalidConfigurationException e) {
             throw new RuntimeException(e);
         }
