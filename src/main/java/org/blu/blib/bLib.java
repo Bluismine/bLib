@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class bLib extends JavaPlugin {
 
     private Text text;
+    private final Configuration c = new Configuration();
 
     @Override
     public void onEnable() {
@@ -15,6 +16,7 @@ public class bLib extends JavaPlugin {
     }
 
     public void setupFile() {
-
+        text.sendInfoLog("Connecting to default configuration file...");
+        c.setupConfiguration();
     }
 }

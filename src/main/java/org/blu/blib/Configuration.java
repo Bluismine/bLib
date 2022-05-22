@@ -19,6 +19,7 @@ public class Configuration {
 
         if (!configFile.exists()) {
             try {
+                text.sendWarningLog("Can't see default configuration file!");
                 text.sendInfoLog("Creating default configuration file...");
                 configFile.createNewFile();
             } catch (IOException e) {
