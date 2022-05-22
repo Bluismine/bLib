@@ -1,10 +1,10 @@
-package org.blu.blib.Utils;
+package org.blu.blib.Util;
 
 import org.blu.blib.bLib;
 
 import java.util.logging.Level;
 
-public class Logger {
+public class Server {
 
     private bLib plugin;
 
