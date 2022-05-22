@@ -1,16 +1,20 @@
 package org.blu.blib;
 
-import org.blu.blib.Util.Server;
+import org.blu.blib.Util.Text;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class bLib extends JavaPlugin {
 
-    public Server sv;
+    private Text text;
 
     @Override
     public void onEnable() {
         final long currentTimeMillis = System.currentTimeMillis();
 
-        sv.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
+        text.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
+    }
+
+    public void setupFile() {
+
     }
 }
