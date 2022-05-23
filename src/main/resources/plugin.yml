@@ -1,0 +1,30 @@
+main: org.blu.blib.bLib
+
+name: bLib
+description: Library for all Blu plugins.
+version: 1.0-SNAPSHOT
+author: Blu
+
+api-version: 1.13
+prefix: bLib
+loadbefore:
+  - bCloud
+permissions:
+  blib.*:
+    description: Allow access to all bLib.
+    default: false
+    children:
+      - blib.command.*
+  blib.command.*:
+    description: Allow access to all bLib commands.
+    default: false
+    children:
+      - blib.command.reload
+      - blib.command.help
+
+  blib.command.reload:
+    description: Allow access to bLib reload command.
+    default: false
+  blib.command.help:
+    description: Allow access to bLib help command.
+    default: false
