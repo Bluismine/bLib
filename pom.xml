@@ -37,6 +37,13 @@
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <!-- Maven -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,13 +63,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <!-- Replace this with your package! -->
-                            <shadedPattern>your.package</shadedPattern>
+                            <shadedPattern>org.blu.blib.Util</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
