@@ -6,14 +6,14 @@ import org.bukkit.command.CommandSender;
 
 public class Text {
 
-    private bLib plugin;
+    private static bLib plugin;
 
-    public void sendInfoLog(final String message) {
-        plugin.getLogger().info(message);
+    public static void sendInfoLog(final String message) {
+        plugin.getLogger().info(ChatColor.translateAlternateColorCodes('&', message));
     }
 
-    public void sendWarningLog(final String message) {
-        plugin.getLogger().warning(message);
+    public static void sendWarningLog(final String message) {
+        plugin.getLogger().warning(ChatColor.translateAlternateColorCodes('&', message));
     }
 
     public void sendMessage(final org.bukkit.entity.Player player, final String message) {
