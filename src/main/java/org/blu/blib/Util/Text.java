@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 
 public class Text {
 
-    private static bLib plugin;
+    private static final bLib plugin = bLib.getPlugin(bLib.class);
 
     public static void sendInfoLog(final String message) {
         plugin.getLogger().info(ChatColor.translateAlternateColorCodes('&', message));
