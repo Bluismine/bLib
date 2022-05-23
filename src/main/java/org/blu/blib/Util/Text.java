@@ -1,19 +1,23 @@
 package org.blu.blib.Util;
 
 import org.blu.blib.bLib;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 
 public class Text {
 
-    private static final bLib plugin = bLib.getPlugin(bLib.class);
+    private static final ConsoleCommandSender CONSOLE = Bukkit.getConsoleSender();
+    private static final bLib PLUGIN = bLib.getPlugin(bLib.class);
+    private static final String CONSOLE_PREFIX = "[" + PLUGIN.getDescription().getPrefix() + "] ";
 
     public static void sendInfoLog(final String message) {
-        plugin.getLogger().info(ChatColor.translateAlternateColorCodes('&', message));
+        CONSOLE.sendMessage(CONSOLE_PREFIX + ChatColor.WHITE + message);
     }
 
     public static void sendWarningLog(final String message) {
-        plugin.getLogger().warning(ChatColor.translateAlternateColorCodes('&', message));
+        CONSOLE.sendMessage(CONSOLE_PREFIX + ChatColor.DARK_RED + message);
     }
 
     public void sendMessage(final org.bukkit.entity.Player player, final String message) {

@@ -2,6 +2,7 @@ package org.blu.blib.File;
 
 import org.blu.blib.Util.Text;
 import org.blu.blib.bLib;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -20,19 +21,17 @@ public class Configuration {
 
         if (!configFile.exists()) {
             try {
-                text.sendWarningLog("Can't see default configuration file!");
-                text.sendInfoLog("Creating default configuration file...");
+                Text.sendWarningLog("Can't see default configuration file!");
+                Text.sendInfoLog("Creating default configuration file...");
                 configFile.createNewFile();
             } catch (IOException e) {
-                text.sendWarningLog("Can't create default configuration file.");
+                Text.sendWarningLog("&4Can't create default configuration file.");
             }
         }
 
         config = new YamlConfiguration();
-
         try {
             config.load(configFile);
-            config.save(configFile);
         } catch (IOException | InvalidConfigurationException e) {
             throw new RuntimeException(e);
         }
