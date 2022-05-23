@@ -25,7 +25,7 @@ public class Configuration {
                 Text.sendInfoLog("Creating default configuration file...");
                 configFile.createNewFile();
             } catch (IOException e) {
-                Text.sendWarningLog("&4Can't create default configuration file.");
+                Text.sendWarningLog("Can't create default configuration file.");
             }
         }
 
