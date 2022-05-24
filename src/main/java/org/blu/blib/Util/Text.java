@@ -13,9 +13,6 @@ public class Text {
     private static final bLib PLUGIN = bLib.getPlugin(bLib.class);
     private static final String CONSOLE_PREFIX = "[" + PLUGIN.getDescription().getPrefix() + "] ";
 
-    public static final String TEXT_RESET = "\u001B[0m";
-    public static final String TEXT_RED = "\u001B[31m";
-
     public static void sendInfoLog(final String message) {
         System.out.print(CONSOLE_PREFIX + message);
     }
