@@ -9,6 +9,7 @@ public class bLib extends JavaPlugin {
 
     private final FileManager fileManager = new FileManager();
     private Text text;
+    private static bLib instance;
 
     @Override
     public void onEnable() {
@@ -21,5 +22,14 @@ public class bLib extends JavaPlugin {
         fileManager.setupFile();
 
         Text.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
+    }
+
+    public static bLib getInstance() {
+        return instance;
+    }
+
+    @Override
+    public void onDisable() {
+        Text.sendInfoLog(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
 }
