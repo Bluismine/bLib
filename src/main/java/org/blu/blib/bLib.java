@@ -1,5 +1,6 @@
 package org.blu.blib;
 
+import org.blu.blib.Command.CommandCore;
 import org.blu.blib.File.FileManager;
 import org.blu.blib.Util.Text;
 import org.bstats.bukkit.Metrics;
@@ -19,8 +20,15 @@ public class bLib extends JavaPlugin {
 
         //setup File
         fileManager.setupFile();
+        //register Commands
+        registersCommand();
 
         Text.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
+    }
+
+    public void registersCommand() {
+        Text.sendInfoLog("Starting register commands...");
+        CommandCore.registerCommand("blib", new MainCommand());
     }
 
     @Override
