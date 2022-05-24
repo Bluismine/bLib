@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
 
 public class Text {
 
@@ -12,15 +13,18 @@ public class Text {
     private static final bLib PLUGIN = bLib.getPlugin(bLib.class);
     private static final String CONSOLE_PREFIX = "[" + PLUGIN.getDescription().getPrefix() + "] ";
 
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_RED = "\u001B[31m";
+
     public static void sendInfoLog(final String message) {
-        CONSOLE.sendMessage(CONSOLE_PREFIX + ChatColor.WHITE + message);
+        System.out.print(CONSOLE_PREFIX + message);
     }
 
     public static void sendWarningLog(final String message) {
-        CONSOLE.sendMessage(CONSOLE_PREFIX + ChatColor.DARK_RED + message);
+        System.out.print(CONSOLE_PREFIX + CommandLineColor.RED.getColor() + message + CommandLineColor.RESET.getColor());
     }
 
-    public void sendMessage(final org.bukkit.entity.Player player, final String message) {
+    public void sendMessage(final Player player, final String message) {
         player.sendMessage(colorize(message));
     }
 
