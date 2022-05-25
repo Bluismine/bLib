@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 public class FileManager {
 
     private final Configuration c = new Configuration();
-    private final Text text = new Text();
+    private Text text;
 
     public void setupFile() {
         Text.sendInfoLog("Connecting to default configuration file...");
