@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class Text {
 
@@ -13,27 +14,27 @@ public class Text {
     private static final bLib PLUGIN = bLib.getPlugin(bLib.class);
     private static final String CONSOLE_PREFIX = "[" + PLUGIN.getDescription().getPrefix() + "] ";
 
-    public static void sendInfoLog(final String message) {
+    public static void sendInfoLog(final @NotNull String message) {
         System.out.print(CONSOLE_PREFIX + message);
     }
 
-    public static void sendWarningLog(final String message) {
+    public static void sendWarningLog(final @NotNull String message) {
         System.out.print(CONSOLE_PREFIX + CommandLineColor.RED.getColor() + message + CommandLineColor.RESET.getColor());
     }
 
-    public void sendMessage(final Player player, final String message) {
+    public void sendMessage(final @NotNull Player player, final @NotNull String message) {
         player.sendMessage(colorize(message));
     }
 
-    public void sendMessage(final CommandSender commandSender, final String message) {
+    public void sendMessage(final @NotNull CommandSender commandSender, final @NotNull String message) {
         commandSender.sendMessage(colorize(message));
     }
 
-    public String colorize(String message) {
+    public String colorize(final @NotNull String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
-    public static String removeColor(String message) {
+    public static String removeColor(final @NotNull String message) {
         return message.replace("&0", "")
                 .replace("&1", "")
                 .replace("&2", "")
