@@ -10,6 +10,7 @@ public enum CommandLineColor {
     PURPLE("purple", "\u001B[35m"),
     CYAN("cyan", "\u001B[36m"),
     WHITE("white", "\u001B[37m"),
+    BOLD("bold", "\u001b[1m"),
     RESET("reset", "\u001B[0m");
 
     private final String name;
