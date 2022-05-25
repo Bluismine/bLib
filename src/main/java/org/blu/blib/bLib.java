@@ -17,22 +17,20 @@ public class bLib extends JavaPlugin {
         // bStats
         int pluginId = 15271;
         Metrics metrics = new Metrics(this, pluginId);
-
         //setup File
         fileManager.setupFile();
-        //register Commands
-        registersCommand();
+        //setup commands
+        registerCommands();
 
         Text.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
     }
 
-    public void registersCommand() {
-        Text.sendInfoLog("Starting register commands...");
-        CommandCore.registerCommand("blib", new MainCommand());
+    private void registerCommands() {
+        CommandCore.registerCommand("blib", new bLibCommand("blib"));
     }
 
     @Override
     public void onDisable() {
-        Text.sendInfoLog(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
+        System.out.printf(String.format("[%s] Disabled Version %s%n", getDescription().getName(), getDescription().getVersion()));
     }
 }
