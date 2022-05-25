@@ -27,7 +27,49 @@ public class Text {
     }
 
     public void sendMessage(final @NotNull CommandSender commandSender, final @NotNull String message) {
-        commandSender.sendMessage(colorize(message));
+        commandSender.sendMessage(colorizes(message));
+    }
+
+    public String colorizes(final @NotNull String message) {
+        return message.replace("§0", CommandLineColor.BLACK.getColor())
+                .replace("§1", CommandLineColor.BLUE.getColor())
+                .replace("§2", CommandLineColor.GREEN.getColor())
+                .replace("§3", CommandLineColor.BLUE.getColor())
+                .replace("§4", CommandLineColor.RED.getColor())
+                .replace("§5", CommandLineColor.PURPLE.getColor())
+                .replace("§6", CommandLineColor.YELLOW.getColor())
+                .replace("§7", CommandLineColor.BLACK.getColor())
+                .replace("§8", CommandLineColor.BLACK.getColor())
+                .replace("§9", CommandLineColor.BLUE.getColor())
+                .replace("§a", CommandLineColor.GREEN.getColor())
+                .replace("§b", CommandLineColor.BLUE.getColor())
+                .replace("§c", CommandLineColor.RED.getColor())
+                .replace("§d", CommandLineColor.PURPLE.getColor())
+                .replace("§e", CommandLineColor.YELLOW.getColor())
+                .replace("§f", CommandLineColor.WHITE.getColor())
+                .replace("§l", "")
+                .replace("§k", "")
+                .replace("§r", CommandLineColor.RESET.getColor())
+                // Part 2
+                .replace("&0", CommandLineColor.BLACK.getColor())
+                .replace("&1", CommandLineColor.BLUE.getColor())
+                .replace("&2", CommandLineColor.GREEN.getColor())
+                .replace("&3", CommandLineColor.BLUE.getColor())
+                .replace("&4", CommandLineColor.RED.getColor())
+                .replace("&5", CommandLineColor.PURPLE.getColor())
+                .replace("&6", CommandLineColor.YELLOW.getColor())
+                .replace("&7", CommandLineColor.BLACK.getColor())
+                .replace("&8", CommandLineColor.BLACK.getColor())
+                .replace("&9", CommandLineColor.BLUE.getColor())
+                .replace("&a", CommandLineColor.GREEN.getColor())
+                .replace("&b", CommandLineColor.BLUE.getColor())
+                .replace("&c", CommandLineColor.RED.getColor())
+                .replace("&d", CommandLineColor.PURPLE.getColor())
+                .replace("&e", CommandLineColor.YELLOW.getColor())
+                .replace("&f", CommandLineColor.WHITE.getColor())
+                .replace("&l", "")
+                .replace("&k", "")
+                .replace("&r", CommandLineColor.RESET.getColor()) + CommandLineColor.RESET.getColor();
     }
 
     public String colorize(final @NotNull String message) {
