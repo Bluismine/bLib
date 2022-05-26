@@ -24,9 +24,9 @@ public class FileManager {
 
     public void reloadFile(Player player) {
         final long currentTimeMillis = System.currentTimeMillis();
-        text.sendMessage(player, "&eReloading default configuration file...");
+        text.sendMessage(player, "&bReloading default configuration file...");
         c.reloadConfiguration();
         c.saveConfiguration();
-        text.sendMessage(player, "&eReload completed in &b" + (System.currentTimeMillis() - currentTimeMillis) + " &ems.");
+        text.sendMessage(player, "&bReload completed in &e" + (System.currentTimeMillis() - currentTimeMillis) + " &bms.");
     }
 }
