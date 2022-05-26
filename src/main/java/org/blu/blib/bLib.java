@@ -9,16 +9,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class bLib extends JavaPlugin {
 
     private final FileManager fileManager = new FileManager();
-    private Text text;
-    private static bLib instance;
+    public bLibCommand bLibCommand;
+    public Text text;
 
     @Override
     public void onEnable() {
         final long currentTimeMillis = System.currentTimeMillis();
-        instance = this;
         // bStats
         int pluginId = 15271;
         Metrics metrics = new Metrics(this, pluginId);
+
+        new bLibCommand("blib", this);
+
         //setup File
         fileManager.setupFile();
         //setup commands
@@ -28,11 +30,7 @@ public class bLib extends JavaPlugin {
     }
 
     private void registerCommands() {
-        CommandCore.registerCommand("blib", new bLibCommand("blib"));
-    }
-
-    public static bLib getInstance() {
-        return instance;
+        CommandCore.registerCommand("blib", new bLibCommand("blib", this));
     }
 
     @Override

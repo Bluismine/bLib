@@ -9,11 +9,11 @@ import java.util.List;
 public abstract class CommandCore extends Command {
 
 
-    protected CommandCore(String name) {
+    public CommandCore(String name) {
         super(name);
     }
 
-    protected CommandCore(String name, String description, String usageMessage, List<String> aliases) {
+    public CommandCore(String name, String description, String usageMessage, List<String> aliases) {
         super(name, description, usageMessage, aliases);
     }
 
@@ -21,7 +21,7 @@ public abstract class CommandCore extends Command {
         try {
             final Field bukkitCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
             bukkitCommandMap.setAccessible(true);
-            final CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
+            final CommandMap commandMap = (CommandMap)bukkitCommandMap.get(Bukkit.getServer());
             commandMap.register(name, (org.bukkit.command.Command)command);
             if (commandMap instanceof CommandMap) {
                 commandMap.register(name, command);

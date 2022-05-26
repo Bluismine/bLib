@@ -1,6 +1,5 @@
 package org.blu.blib.Util;
 
-import org.blu.blib.bLib;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -11,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class Text {
 
     private static final ConsoleCommandSender CONSOLE = Bukkit.getConsoleSender();
-    private static final bLib PLUGIN = bLib.getPlugin(bLib.class);
-    private static final String CONSOLE_PREFIX = "[" + PLUGIN.getDescription().getPrefix() + "] ";
+    private static final String CONSOLE_PREFIX = "[" + "bLib" + "] ";
 
     public static void sendInfoLog(final @NotNull String message) {
         System.out.print(CONSOLE_PREFIX + message);
@@ -27,7 +25,7 @@ public class Text {
     }
 
     public void sendMessage(final @NotNull CommandSender commandSender, final @NotNull String message) {
-        commandSender.sendMessage(colorizes(message));
+        System.out.print(colorizes(message) + CommandLineColor.RESET.getColor());
     }
 
     public String colorizes(final @NotNull String message) {

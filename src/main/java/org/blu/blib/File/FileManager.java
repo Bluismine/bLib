@@ -6,7 +6,8 @@ import org.bukkit.entity.Player;
 public class FileManager {
 
     private final Configuration c = new Configuration();
-    private Text text;
+
+    private final Text text = new Text();
 
     public void setupFile() {
         Text.sendInfoLog("Connecting to default configuration file...");
@@ -26,6 +27,6 @@ public class FileManager {
         text.sendMessage(player, "&eReloading default configuration file...");
         c.reloadConfiguration();
         c.saveConfiguration();
-        text.sendMessage(player, "&eReload completed in &b" + (currentTimeMillis - System.currentTimeMillis()) + " &ems.");
+        text.sendMessage(player, "&eReload completed in &b" + (System.currentTimeMillis() - currentTimeMillis) + " &ems.");
     }
 }
