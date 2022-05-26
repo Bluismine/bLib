@@ -18,7 +18,7 @@ public class FileManager {
         Text.sendInfoLog("Reloading default configuration file...");
         c.reloadConfiguration();
         c.saveConfiguration();
-        Text.sendInfoLog("Reload completed in " + (currentTimeMillis - System.currentTimeMillis()) + " ms.");
+        Text.sendInfoLog("Reload completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
     }
 
     public void reloadFile(Player player) {

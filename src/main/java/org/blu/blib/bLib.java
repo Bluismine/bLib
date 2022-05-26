@@ -10,10 +10,12 @@ public class bLib extends JavaPlugin {
 
     private final FileManager fileManager = new FileManager();
     private Text text;
+    private static bLib instance;
 
     @Override
     public void onEnable() {
         final long currentTimeMillis = System.currentTimeMillis();
+        instance = this;
         // bStats
         int pluginId = 15271;
         Metrics metrics = new Metrics(this, pluginId);
@@ -27,6 +29,10 @@ public class bLib extends JavaPlugin {
 
     private void registerCommands() {
         CommandCore.registerCommand("blib", new bLibCommand("blib"));
+    }
+
+    public static bLib getInstance() {
+        return instance;
     }
 
     @Override

@@ -1,14 +1,11 @@
 package org.blu.blib;
 
-import org.apache.maven.model.PluginManagement;
 import org.blu.blib.Command.CommandCore;
 import org.blu.blib.File.FileManager;
-import org.blu.blib.Util.CommandLineColor;
 import org.blu.blib.Util.Text;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class bLibCommand extends CommandCore {
@@ -23,17 +20,23 @@ public class bLibCommand extends CommandCore {
 
     @Override
     public boolean execute(CommandSender commandSender, String label, String[] args) {
-        Text text = new Text();
-        if (!commandSender.hasPermission(getPermission())) text.sendMessage(commandSender, "&cYou don't have permission to do this!");
-        else {
-            if (args[0].equalsIgnoreCase("reload")) {
-                FileManager file = new FileManager();
-                file.reloadFile();
+        final Text text = new Text();
+        if (commandSender instanceof Player player) {
+            if (!commandSender.hasPermission(getPermission())) {
+                text.sendMessage(commandSender, "&cYou don't have permission to do this!");
+            }
+            text.sendMessage(player, "&cFor now, this command doesn't support for player.\n&cPlease, waiting for update.");
+        } else {
+            if (args.length <= 0) {
+                text.sendMessage(commandSender, "bLib " + bLib.getInstance().getDescription().getVersion() +" was created by &bBlu&r.");
+            }
+            if (args.length == 1) {
+                if (args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("rl")) {
+                    FileManager file = new FileManager();
+                    file.reloadFile();
+                }
             }
         }
-        if (commandSender instanceof Player player) {
-            text.sendMessage(player, "&cFor now, this command doesn't support for player.\n&cPlease, waiting for update.");
-        }
-        return false;
+        return true;
     }
 }

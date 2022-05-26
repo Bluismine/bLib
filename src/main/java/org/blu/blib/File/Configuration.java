@@ -53,11 +53,12 @@ public class Configuration {
     }
 
      public void reloadConfiguration() {
+        setupConfiguration();
         config = YamlConfiguration.loadConfiguration(configFile);
      }
 
      public void loadConfigurationFile() {
          this.getConfiguration().options().header("bLib version " + bLib.getPlugin(bLib.class).getDescription().getVersion() + "\nCreated by Blu");
-         this.getConfiguration().addDefault("Hello", "hi");
+
      }
 }
