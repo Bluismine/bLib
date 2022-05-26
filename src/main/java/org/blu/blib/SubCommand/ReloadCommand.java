@@ -5,6 +5,7 @@ import org.blu.blib.File.FileManager;
 import org.blu.blib.Util.Text;
 import org.blu.blib.bLib;
 import org.blu.blib.bLibCommand;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ReloadCommand extends SubCommand {
@@ -34,6 +35,16 @@ public class ReloadCommand extends SubCommand {
         }else if(args.length == 1){
             FileManager file = new FileManager();
             file.reloadFile(player);
+        }
+    }
+
+    @Override
+    public void perform(CommandSender commandSender, String[] args) {
+        if (args.length > 1){
+            text.sendMessage(commandSender, "Try this: /blib reload");
+        }else if(args.length == 1){
+            FileManager file = new FileManager();
+            file.reloadFile();
         }
     }
 

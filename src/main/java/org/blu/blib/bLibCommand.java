@@ -2,7 +2,6 @@ package org.blu.blib;
 
 import org.blu.blib.Command.CommandCore;
 import org.blu.blib.Command.SubCommand;
-import org.blu.blib.File.FileManager;
 import org.blu.blib.SubCommand.ReloadCommand;
 import org.blu.blib.Util.Text;
 import org.bukkit.command.CommandSender;
@@ -55,11 +54,10 @@ public class bLibCommand extends CommandCore {
                 text.sendMessage(commandSender, "Created by: Blu");
                 text.sendMessage(commandSender, "/blib reload - To reload all config file.");
             } else if (args.length == 1) {
-                if (args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("rl")) {
-                    FileManager file = new FileManager();
-                    file.reloadFile();
-                } else {
-                    text.sendMessage(commandSender, "Try: /" + label + " help - To show help menu.");
+                for (int i = 0; i < getSubCommands().size(); i++) {
+                    if (args[0].equalsIgnoreCase(getSubCommands().get(i).getName())) {
+                        getSubCommands().get(i).perform(commandSender, args);
+                    }
                 }
             }
         }
