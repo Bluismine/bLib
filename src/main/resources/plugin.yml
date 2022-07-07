@@ -2,7 +2,7 @@ main: net.blu.blib.bLib
 
 name: bLib
 description: Library for all Blu plugins.
-version: 1.1-SNAPSHOT
+version: 1.1.1
 author: Blu
 
 api-version: 1.13

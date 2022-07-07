@@ -4,6 +4,7 @@ import net.blu.blib.api.util.Logger;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,12 +13,8 @@ public class Configuration {
 
     private File configFile;
     private FileConfiguration config;
-    private final bLib plugin;
-    private final Logger logger = new Logger();
-
-    public Configuration(bLib bLib) {
-        this.plugin = bLib;
-    }
+    private final JavaPlugin plugin = bLib.getInstance();
+    private final Logger logger = new Logger(plugin);
 
     public void setupConfiguration() {
         File configFolder = new File(plugin.getDataFolder(), plugin.getName());

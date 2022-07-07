@@ -1,5 +1,6 @@
 package net.blu.blib;
 
+import net.blu.blib.api.bAPI;
 import net.blu.blib.api.util.ConsoleColor;
 import net.blu.blib.api.util.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -7,15 +8,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class bLib extends JavaPlugin {
 
     public Configuration c;
-    public final String PREFIX = "[" + this.getDescription().getName() + "] ";
     private Logger logger;
     private static bLib instance;
+    private bAPI api;
 
     @Override
     public void onEnable() {
         final long currentTimeMillis = System.currentTimeMillis();
         System.out.print(ConsoleColor.LIGHT_BLUE + "    ___  " + ConsoleColor.YELLOW + "            " + ConsoleColor.RESET);
-        System.out.print(ConsoleColor.LIGHT_BLUE + "   |___) " + ConsoleColor.YELLOW + "|   .|__    " + ConsoleColor.LIGHT_BLUE + "BLib " + ConsoleColor.WHITE + "v"+this.getDescription().getVersion());
+        System.out.print(ConsoleColor.LIGHT_BLUE + "   |___) " + ConsoleColor.YELLOW + "|   .|__    " + ConsoleColor.LIGHT_BLUE + "B" + ConsoleColor.YELLOW +"Lib " + ConsoleColor.WHITE + "v"+this.getDescription().getVersion());
         System.out.print(ConsoleColor.LIGHT_BLUE + "   |___) " + ConsoleColor.YELLOW + "|___||__)   " + ConsoleColor.WHITE + "Running on Bukkit - CraftBukkit");
         System.out.print("   ");
         // Sign up some feature
@@ -23,9 +24,9 @@ public class bLib extends JavaPlugin {
         instance = this;
         // utils
         logger = new Logger(this);
-        logger.sendInfoLog("Register library...");
+        logger.sendInfoLog("Register library & API...");
         // files
-        c = new Configuration(this);
+        c = new Configuration();
 
         // bStats
         int pluginId = 15271;
