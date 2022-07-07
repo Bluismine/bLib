@@ -1,4 +1,4 @@
-package net.blu.blib.api.util;
+package net.blu.blib.api.utils;
 
 /**
  * Color for console.

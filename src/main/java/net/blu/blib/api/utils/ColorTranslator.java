@@ -1,4 +1,4 @@
-package net.blu.blib.api.util;
+package net.blu.blib.api.utils;
 
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.Contract;

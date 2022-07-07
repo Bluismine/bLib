@@ -1,15 +1,15 @@
-package net.blu.blib.api.util;
+package net.blu.blib.util;
 
-import net.blu.blib.api.bAPI;
+import net.blu.blib.api.bLibrary;
+import net.blu.blib.api.utils.Color;
+import net.blu.blib.api.utils.ColorTranslator;
+import net.blu.blib.api.utils.ConsoleColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class Logger extends bAPI{
-
-    private String prefix = bAPI.prefix;
-
+public class Logger extends bLibrary {
     /**
      * Constructor when call logger to push announce.
      */
@@ -23,9 +23,6 @@ public class Logger extends bAPI{
      */
     @NotNull
     public void sendInfoLog(@NotNull String message) {
-        if (prefix == null) {
-            prefix = "Please set your plugin prefix with net.blu.api.util.Logger";
-        }
         System.out.print(getPrefix() + message + ConsoleColor.RESET);
     }
 
@@ -34,9 +31,6 @@ public class Logger extends bAPI{
      */
     @NotNull
     public void sendWarningLog(@NotNull String message) {
-        if (prefix == null) {
-            prefix = "Please set your plugin prefix with net.blu.api.util.Logger";
-        }
         System.out.print(getPrefix() + Color.RED.getColor() + message + ConsoleColor.RESET);
     }
 

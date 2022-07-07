@@ -1,16 +1,15 @@
 package net.blu.blib;
 
-import net.blu.blib.api.bAPI;
-import net.blu.blib.api.util.ConsoleColor;
-import net.blu.blib.api.util.Logger;
+import net.blu.blib.api.utils.ConsoleColor;
+import net.blu.blib.util.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class bLib extends JavaPlugin {
 
-    public Configuration c;
     private Logger logger;
     private static bLib instance;
-    private bAPI api;
 
     @Override
     public void onEnable() {
@@ -26,14 +25,10 @@ public class bLib extends JavaPlugin {
         logger = new Logger(this);
         logger.sendInfoLog("Register library & API...");
         // files
-        c = new Configuration();
 
         // bStats
         int pluginId = 15271;
         //Metrics metrics = new Metrics(this, pluginId);
-
-        //setup File
-        c.setupConfiguration();
 
         logger.sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
     }
