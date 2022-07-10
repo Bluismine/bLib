@@ -4,8 +4,6 @@ import net.blu.blib.api.utils.ConsoleColor;
 import net.blu.blib.util.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-
 public class bLib extends JavaPlugin {
 
     private Logger logger;
