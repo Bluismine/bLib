@@ -1,4 +1,4 @@
-package net.blu.blib.api.utils;
+package net.blu.blib.library.util.color;
 
 public enum Color {
 

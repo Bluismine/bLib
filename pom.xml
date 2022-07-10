@@ -6,7 +6,7 @@
 
     <groupId>net.blu</groupId>
     <artifactId>bLib</artifactId>
-    <version>1.1.1</version>
+    <version>1.2</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
@@ -57,7 +57,6 @@
                 <version>2.3.1</version>
                 <configuration>
                     <outputDirectory>D:\Blu\Workspace\Java\Plugins</outputDirectory>
-                    <outputDirectory>D:\Blu\Work\Game\Minecraft\Server\Server\TestPlugins\plugins</outputDirectory>
                 </configuration>
             </plugin>
             <!-- bStats -->

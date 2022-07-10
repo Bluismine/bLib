@@ -1,4 +1,4 @@
-package net.blu.blib.api.command;
+package net.blu.blib.library.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

@@ -1,7 +1,7 @@
 package net.blu.blib;
 
-import net.blu.blib.api.utils.ConsoleColor;
-import net.blu.blib.util.Logger;
+import net.blu.blib.library.util.color.ConsoleColor;
+import net.blu.blib.library.util.logger.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class bLib extends JavaPlugin {

@@ -1,10 +1,10 @@
-package net.blu.blib.api.utils;
+package net.blu.blib.library.util.color;
 
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-public class ColorTranslator {
+public abstract class ColorTranslator {
 
     /**
      * Colorize for console.
