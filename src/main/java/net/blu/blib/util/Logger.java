@@ -1,7 +1,6 @@
 package net.blu.blib.util;
 
 import net.blu.blib.api.bLibrary;
-import net.blu.blib.api.utils.Color;
 import net.blu.blib.api.utils.ColorTranslator;
 import net.blu.blib.api.utils.ConsoleColor;
 import org.bukkit.command.CommandSender;
@@ -10,11 +9,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 public class Logger extends bLibrary {
+    private final JavaPlugin plugin;
     /**
      * Constructor when call logger to push announce.
      */
     public Logger(@NotNull JavaPlugin plugin) {
         super(plugin);
+        this.plugin = plugin;
         setPrefix(plugin.getDescription().getName());
     }
 
@@ -31,7 +32,7 @@ public class Logger extends bLibrary {
      */
     @NotNull
     public void sendWarningLog(@NotNull String message) {
-        System.out.print(getPrefix() + Color.RED.getColor() + message + ConsoleColor.RESET);
+        plugin.getLogger().warning(ColorTranslator.colorizes(message));
     }
 
     @NotNull
