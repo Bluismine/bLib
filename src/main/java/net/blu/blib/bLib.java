@@ -12,9 +12,9 @@ public class bLib extends JavaPlugin {
     @Override
     public void onEnable() {
         final long currentTimeMillis = System.currentTimeMillis();
-        System.out.print(ConsoleColor.LIGHT_BLUE + "    ___  " + ConsoleColor.YELLOW + "            " + ConsoleColor.RESET);
-        System.out.print(ConsoleColor.LIGHT_BLUE + "   |___) " + ConsoleColor.YELLOW + "|   .|__    " + ConsoleColor.LIGHT_BLUE + "B" + ConsoleColor.YELLOW +"Lib " + ConsoleColor.WHITE + "v"+this.getDescription().getVersion());
-        System.out.print(ConsoleColor.LIGHT_BLUE + "   |___) " + ConsoleColor.YELLOW + "|___||__)   " + ConsoleColor.WHITE + "Running on Bukkit - CraftBukkit");
+        System.out.print(ConsoleColor.LIGHT_BLUE + "         " + ConsoleColor.YELLOW + "            " + ConsoleColor.RESET);
+        System.out.print(ConsoleColor.LIGHT_BLUE + "   |__  " + ConsoleColor.YELLOW + "|   .|__    " + ConsoleColor.LIGHT_BLUE + "B" + ConsoleColor.YELLOW +"Lib " + ConsoleColor.WHITE + "v"+this.getDescription().getVersion());
+        System.out.print(ConsoleColor.LIGHT_BLUE + "   |__) " + ConsoleColor.YELLOW + "|___||__)   " + ConsoleColor.WHITE + "Running on Bukkit - CraftBukkit");
         System.out.print("   ");
         // Sign up some feature
         // init
