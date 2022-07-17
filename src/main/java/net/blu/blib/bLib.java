@@ -4,6 +4,7 @@ import net.blu.blib.library.util.color.ConsoleColor;
 import net.blu.blib.library.util.logger.LogUtils;
 import net.blu.blib.library.util.permission.PermissionChecker;
 import net.blu.blib.library.util.sound.Sound;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class bLib extends JavaPlugin {
@@ -30,9 +31,9 @@ public class bLib extends JavaPlugin {
         }
         getLoggerUtils().sendInfoLog("Hooking library...");
 
-        // bStats
-        int pluginId = 15271;
-        //Metrics metrics = new Metrics(this, pluginId);
+        // Metrics
+        final int pluginId = 15271;
+        Metrics metrics = new Metrics(this, pluginId);
 
         getLoggerUtils().sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
     }
