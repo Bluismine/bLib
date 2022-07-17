@@ -1,11 +1,9 @@
 package net.blu.blib.library.util.color;
 
 import org.bukkit.ChatColor;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class ColorTranslator {
-
     /**
      * Colorize for console.
      */
@@ -57,7 +55,6 @@ public abstract class ColorTranslator {
     /**
      * Colorize for message to user.
      */
-    @Contract("_ -> new")
     public static String colorize(@NotNull String message) {
         if (message == null) {
             message = "&cHave some problem with ColorTranslator library, report this to author to fix this!";

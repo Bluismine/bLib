@@ -1,22 +1,16 @@
 package net.blu.blib.library.util.itemstack;
 
-import net.blu.blib.API.ItemStackAPI;
-import org.jetbrains.annotations.NotNull;
+public class ItemStack {
 
-public class ItemStack implements ItemStackAPI {
-
-    @Override
-    public @NotNull String getName() {
+    public String getName() {
         return null;
     }
 
-    @Override
-    public @NotNull String getDisplayName() {
+    public String getDisplayName() {
         return null;
     }
 
-    @Override
-    public org.bukkit.inventory.@NotNull ItemStack getSkull() {
+    public ItemStack getSkull() {
         return null;
     }
 }

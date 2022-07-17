@@ -6,15 +6,14 @@
 
     <groupId>net.blu</groupId>
     <artifactId>bLib</artifactId>
-    <version>1.2</version>
+    <version>1.2.1</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
-    <!-- Spigot -->
     <repositories>
-        <!-- This adds the Spigot Maven repository to the build -->
+        <!-- Spigot -->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
@@ -29,16 +28,14 @@
             <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <!-- bStats -->
-
-        <!-- Maven -->
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
-        <!--<dependency>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-shade-plugin</artifactId>
-           <version>3.3.0</version>
-       </dependency>-->
-
+        <!-- Metrics -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- JetBrains -->
        <dependency>
            <groupId>org.jetbrains</groupId>
            <artifactId>annotations</artifactId>
@@ -56,11 +53,33 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
+                    <!-- Replace this with your folder! -->
                     <outputDirectory>D:\Blu\Workspace\Java\Plugins</outputDirectory>
                 </configuration>
             </plugin>
             <!-- bStats -->
-
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-shade-plugin</artifactId>
+               <version>3.1.0</version>
+               <configuration>
+                   <relocations>
+                       <relocation>
+                           <pattern>org.bstats</pattern>
+                           <!-- Replace this with your package! -->
+                           <shadedPattern>net.blu.blib.library.util.metrics</shadedPattern>
+                       </relocation>
+                   </relocations>
+               </configuration>
+               <executions>
+                   <execution>
+                       <phase>package</phase>
+                       <goals>
+                           <goal>shade</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
         </plugins>
     </build>
 </project>

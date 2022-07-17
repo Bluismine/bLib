@@ -1,27 +1,12 @@
 main: net.blu.blib.bLib
 
 name: bLib
-description: Library for all Blu plugins.
-version: 1.2
+description: Library support dev to code faster.
+version: 1.2.1
 author: Blu
 
 api-version: 1.13
 prefix: bLib
+# List of plugins using bLib ( recommend add your plugins in here)
 loadbefore:
-  - bCloud
-
-permissions:
-  blib.*:
-    description: Allow access to all bLib.
-    default: false
-    children:
-      - blib.command.*
-  blib.command.*:
-    description: Allow access to all bLib commands.
-    default: false
-    children:
-      - blib.command.reload
-
-  blib.command.reload:
-    description: Allow access to bLib reload command.
-    default: false
+  - bEconomy

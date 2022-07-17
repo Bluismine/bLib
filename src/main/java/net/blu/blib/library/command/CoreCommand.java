@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CoreCommand extends Command {
@@ -33,4 +34,6 @@ public abstract class CoreCommand extends Command {
     }
 
     public abstract boolean execute(@NotNull CommandSender commandSender, @NotNull String label, @NotNull String[] args);
+
+    public abstract ArrayList<SubCommand> getSubCommands();
 }

@@ -1,48 +1,69 @@
 package net.blu.blib.library.util.permission;
 
 import com.google.common.base.Preconditions;
-import net.blu.blib.API.PermissionAPI;
-import net.blu.blib.library.util.logger.Logger;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class PermissionChecker implements PermissionAPI {
 
-    private JavaPlugin plugin;
-    private final Logger logger = new Logger(plugin);
+public abstract class PermissionChecker {
 
-    public PermissionChecker(@NotNull JavaPlugin mainClass) {
-        this.plugin = mainClass;
-    }
+    private static final String message = "&cYou cannot to do this! You don't have permission: %permission%";
 
-    @Override
+    /**
+     * Check player's permission with announce if player don't have that permission.
+     * @param player who I need check him?
+     * @param permission player's needed to execute command or do sth.
+     */
     @NotNull
-    public boolean checkPermission(Player player, String permission) {
+    public static boolean checkPermission(Player player, String permission) {
         Preconditions.checkArgument(player != null, "You forgot add player to check permission.");
         Preconditions.checkArgument(permission != null, "You forgot add permission to check that.");
+
         if (player.hasPermission(permission)) {
             return true;
         } else {
-            logger.sendInfoLog("You don't have permission: " + permission + " to do this.");
+            player.sendMessage(message.replaceAll("%permission%", permission));
             return false;
         }
     }
 
-    @Override
+    /**
+     * Check player's permission with announce and sound if player don't have that permission.
+     * @param player who I need check him?
+     * @param permission player's needed to execute command or do sth.
+     * @param sound sound needed to play.
+     */
     @NotNull
-    public boolean checkPermission(Player player, FileConfiguration fileName, String path) {
+    public static boolean checkPermission(Player player, String permission, Sound sound) {
         Preconditions.checkArgument(player != null, "You forgot add player to check permission.");
-        Preconditions.checkArgument(fileName != null, "You forgot add file to get permission.");
-        Preconditions.checkArgument(player != null, "You forgot add path to get permission.");
-        final String permission = fileName.getString(path);
-        if (permission.equalsIgnoreCase("none") || checkPermission(player, permission)) {
+        Preconditions.checkArgument(permission != null, "You forgot add permission to check that.");
+
+        if (player.hasPermission(permission)) {
             return true;
+        } else {
+            player.sendMessage(message.replaceAll("%permission%", permission));
+            return false;
         }
-        for (String message : fileName.getStringList(path)) {
-            logger.sendMessage(player, message.replace("%permission%", permission));
-        }
-        return false;
+    }
+
+    /**
+     * Check player's permission and don't have announced.
+     * @param player who I need check him?
+     * @param permission player's needed to execute command or do sth.
+     */
+    @NotNull
+    public boolean checkPermissionSilent(Player player, String permission) {
+        Preconditions.checkArgument(player != null, "You forgot add player to check permission.");
+        Preconditions.checkArgument(permission != null, "You forgot add permission to check.");
+
+        return permission.equalsIgnoreCase("none") || player.hasPermission(permission);
+    }
+
+    /**
+     * Set message when player don't have permission you want.
+     */
+    public String setMessage() {
+        return message;
     }
 }
