@@ -21,31 +21,22 @@ public class bLib extends JavaPlugin {
         System.out.print(ConsoleColor.LIGHT_BLUE + "         " + ConsoleColor.YELLOW + "           " + ConsoleColor.RESET);
         System.out.print(ConsoleColor.LIGHT_BLUE + "   |__  " + ConsoleColor.YELLOW + "|   .|__    " + ConsoleColor.LIGHT_BLUE + "b" + ConsoleColor.YELLOW +"Lib " + ConsoleColor.WHITE + "v"+this.getDescription().getVersion());
         System.out.print(ConsoleColor.LIGHT_BLUE + "   |__) " + ConsoleColor.YELLOW + "|___||__)   " + ConsoleColor.WHITE + "Running on Bukkit - CraftBukkit");
-        System.out.print("   ");
+        System.out.print(ConsoleColor.RESET + "   ");
         // Sign up some feature
         // init
         instance = this;
-        if (!setupLoggerUtils()) {
-            System.out.println(ConsoleColor.RED + "Disable plugin!");
-            getServer().getPluginManager().disablePlugin(this);
-        }
-        getLoggerUtils().sendInfoLog("Hooking library...");
+        getLoggerUtils().sendInfoLog(this, "Hooking library...");
 
         // Metrics
         final int pluginId = 15271;
         Metrics metrics = new Metrics(this, pluginId);
 
-        getLoggerUtils().sendInfoLog("Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
+        getLoggerUtils().sendInfoLog(this, "Completed in " + (System.currentTimeMillis() - currentTimeMillis) + " ms.");
     }
 
     @Override
     public void onDisable() {
         System.out.printf(String.format("[%s] Disabled Version %s%n", getDescription().getName(), getDescription().getVersion()));
-    }
-
-    public boolean setupLoggerUtils() {
-        logger.setPrefix(this);
-        return logger != null;
     }
 
     public static LogUtils getLoggerUtils() {

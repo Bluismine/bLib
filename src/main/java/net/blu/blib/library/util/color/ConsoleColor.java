@@ -4,22 +4,44 @@ package net.blu.blib.library.util.color;
  * Color for console.
  */
 public class ConsoleColor {
-    private final String name;
-    private final String code;
 
-    public static final String BLACK = String.valueOf(new ConsoleColor("black", "\u001b[30m"));
-    public static final String RED = String.valueOf(new ConsoleColor("red", "\u001b[31m"));
-    public static final String GREEN = String.valueOf(new ConsoleColor("green", "\u001b[32m"));
-    public static final String YELLOW = String.valueOf(new ConsoleColor("yellow", "\u001b[33m"));
-    public static final String BLUE = String.valueOf(new ConsoleColor("blue", "\u001b[34m"));
-    public static final String PURPLE = String.valueOf(new ConsoleColor("purple", "\u001b[35m"));
-    public static final String LIGHT_BLUE = String.valueOf(new ConsoleColor("light blue", "\u001b[36m"));
-    public static final String WHITE = String.valueOf(new ConsoleColor("white", "\u001b[36m"));
-    public static final String BOLD = String.valueOf(new ConsoleColor("blod", "\u001b[1m"));
-    public static final String RESET = String.valueOf(new ConsoleColor("reset", "\u001b[0m"));
+    public static final String BLACK = CommandLineColor.BLACK.getCode();
+    public static final String RED = CommandLineColor.RED.getCode();
+    public static final String GREEN = CommandLineColor.GREEN.getCode();
+    public static final String YELLOW = CommandLineColor.YELLOW.getCode();
+    public static final String BLUE = CommandLineColor.BLUE.getCode();
+    public static final String PURPLE = CommandLineColor.PURPLE.getCode();
+    public static final String LIGHT_BLUE = CommandLineColor.LIGHT_BLUE.getCode();
+    public static final String WHITE = CommandLineColor.WHITE.getCode();
+    public static final String BOLD = CommandLineColor.BOLD.getCode();
+    public static final String RESET = CommandLineColor.RESET.getCode();
 
-    private ConsoleColor(String name, String code) {
-        this.name = name;
-        this.code = code;
+    public enum CommandLineColor {
+        BLACK("black", "\u001b[30m"),
+        RED("black", "\u001b[31m"),
+        GREEN("black", "\u001b[32m"),
+        YELLOW("black", "\u001b[33m"),
+        BLUE("black", "\u001b[34m"),
+        PURPLE("black", "\u001b[35m"),
+        LIGHT_BLUE("black", "\u001b[36m"),
+        WHITE("black", "\u001b[37m"),
+        BOLD("black", "\u001b[1m"),
+        RESET("black", "\u001b[0m");
+
+        private final String name;
+        private final String code;
+
+        CommandLineColor(String name, String code) {
+            this.name = name;
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        private String getName() {
+            return name;
+        }
     }
 }
